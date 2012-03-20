@@ -11,8 +11,6 @@
     
 <?php
 require "incs.php";
-
-
 ?>
     
 </head>
@@ -26,6 +24,7 @@ session_start();
         <div id="menu">
         </div>
             <div id="nav">
+                <form name="frmLogar" id="frmLogar" action="mainframe/actions.php" method="post" >
                 <table width="20%" align="center">
                     <tr>
                         <td align="center">
@@ -46,11 +45,11 @@ session_start();
                     </tr>
                     <tr>
                         <td align="center">
-                            <input type="hidden" name="fmLogar" value="fmLogar" />
                             <input type="submit" name="Logar" id="Logar" value="Logar" />
                         </td>
                     </tr>
                 </table>
+                </form>
             </div>
         </form>   
     </div>
