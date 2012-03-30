@@ -57,6 +57,31 @@ class data{
 			trigger_error($msg." comando SQL: <strong><pre>".$cmdSQL."</pre></strong>");
 	}
     
+//Função que retorna uma SQL de inserção    
+    function getInsertSQL($rs, $data) {
+        $a = $this->db->GetInsertSQL($rs, $data);
+        return $a;
+    }
+
+//Função para Inserir Registros Automaticamente    
+    function _insrt($rs, $record){ 
+        //$this->db->debug=true;
+        if ($this->db->AutoExecute($rs, $record, "INSERT"))
+            return true;
+        else
+            return false;
+    }
+    
+//Função para Atualizar registro Automaticamente    
+    function _updt($rs, $record, $cod) { 
+        $this->db->debug=true;
+        if ($this->db->AutoExecute($rs, $record, 'UPDATE', $cod)) 
+            return true;
+        else
+            return false;
+    }    
+    
 }
+
 
 ?>
