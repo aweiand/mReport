@@ -5,8 +5,6 @@
   - guto.weiand@gmail.com
   - Criação - 19/03/2012
  */
-include "../mainframe/plugins/adodb/adodb.inc.php";
-
 class data{
     var $db;
     
@@ -20,20 +18,20 @@ class data{
             if ($_SERVER['SERVER_NAME'] == "localhost") {
                 $server   = "localhost";
                 $database = "mReport";
-                $user     = "root";
-                $password = "root";
+                $user     = "newuser";
+                $password = "newuser";
             }
             else
             {
                 $server   = "localhost";
                 $database = "mReport";
-                $user     = "root";
-                $password = "root";
+                $user     = "newuser";
+                $password = "newuser";
             }
             $CONN = ADONewConnection('mysql');
             @$CONN->Connect($server, $user, $password, $database);
             $CONN->Execute("SET NAMES utf-8;");
-            //$CONN->debug=true;
+            $CONN->debug=true;
             return $CONN;
     }
     

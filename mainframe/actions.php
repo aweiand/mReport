@@ -1,9 +1,10 @@
 <?
-require "plugins/phpmailer/class.phpmailer.php";
+include_once "plugins/adodb/adodb.inc.php";
+include_once "classes/database.php";
 
-require "classes/utils.class.php";
-require "classes/database.php";
-
+foreach (glob("classes/*.php") as $filename) {
+    include_once $filename;
+}
 /*
  * Ações para trabalhar com o mReport
  * 
@@ -19,13 +20,12 @@ session_start();
 
 
 /* Usado para Debug
- * 
+ *
 echo "<pre>";
 print_r($post);
 exit();
  * 
 */
-
 
 /*  Login no Sistema
  *   realiza o login no sistema
@@ -40,20 +40,13 @@ exit();
  *  @login -> string
  *  @senha -> string
  */
-if (isset($post["frmLogar"])){
-    $u  = new Utils();
-    $db = new data();
-    if (!$u->badWords($post)){
-        return "Não Logado";
-        break;
-    }        
+if (isset($post["action"])&&($post['action']=='Logar')){
+    $u  = new User();
     
-    $sql = "SELECT * FROM usuarios WHERE user=".$post['login']." AND senha=".$post['passwd'];
-    $result = $db->query($sql);
-    if ($result->RecordCount!=0)
-        echo "logado";
+    if ($u->_logar($post))
+        header("Location: ../index.php");
     else
-        echo "não logado";
+        header("Location: ../index.php?actionMens=erroLogin");
 }
 
 
@@ -66,7 +59,7 @@ if (isset($post["frmLogar"])){
  *   @session['usuid'] -> int
  *   @session['autenticado'] -> string
  */
-if (isset($post['autenticacao'])){
+if (isset($post["action"])&&($post['action']=='autenticacao')){
     
 }
 

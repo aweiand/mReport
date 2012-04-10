@@ -21,40 +21,44 @@ class Utils {
     function badWords($post){
         $badwords = array("#", "'", "*","="," union "," insert "," update "," drop "," select ");
         foreach($post as $value)
-        foreach($badwords as $word)
-        if(substr_count($value, $word) > 0) 
-            return false;
-        else
-            return true;
+            foreach($badwords as $word)
+                if(substr_count($value, $word) > 0) 
+                    return false;
+                else
+                    return true;
     }
     
     /*
      * Função para testar se a pessoa está logada no sistema
      * 
      * requer
-     *  @
+     *  @$_SESSION['iduser']
+     *  @$_SESSION['logado']
      * 
      * verifica
-     *  @
+     *  @$_SESSION['iduser']
+     *  @$_SESSION['logado']
      * 
      */
     function _logado(){
+        $db = new data();
+        
+        if (isset($_SESSION['iduser'])){
+            $sql = "SELECT * FROM user WHERE idusers=".$_SESSION['iduser'];
+            $ret = $db->query($sql);
+        }
+        else {
+            return false;
+        }
+        
+        if ($ret->RecordCount()==0) {
+            unset($_SESSION['iduser']);
+            unset($_SESSION['logado']);
+            return false;
+        } else
+            return true;
     }
-    
-    /*
-     * Função para verificar se o usuário tem permissões
-     * 
-     * requer
-     *  @
-     * 
-     * verifica
-     *  @
-     * 
-     */
-    function getPermissoes(){
-
-    }
-    
+        
     /*
      * Função genérica para o envio do email para qualquer fim
      * 

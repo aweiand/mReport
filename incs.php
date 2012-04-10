@@ -17,14 +17,14 @@
     <script type="text/javascript" src="mainframe/plugins/jquery/jquery.form.js"></script>
     <script type="text/javascript" src="mainframe/plugins/jquery/jquery.maskedinput-1.3.js"></script>
     <script type="text/javascript" src="mainframe/js/funcs.js"></script>
-    <script type="text/javascript" src="mainframe/plugins/jquery/jquery.validate.js"></script>
     
 <!-- PHP -->    
 <?php
 
-include "mainframe/classes/utils.class.php";
-include "mainframe/plugins/adodb/adodb.inc.php";
-include "mainframe/plugins/phpmailer/class.phpmailer.php";
-include "mainframe/classes/mail.class.php";
+include_once "mainframe/plugins/adodb/adodb.inc.php";
+
+foreach (glob("mainframe/classes/*.php") as $filename) {
+    include_once $filename;
+}
 
 ?>

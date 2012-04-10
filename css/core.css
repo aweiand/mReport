@@ -74,12 +74,17 @@ body {
     border: none;
 }
 
-#loading {
+#mens {
     visibility: hidden;
-    width: 100%;
-    height: 100%;
-    position: relative;
+    margin:0 auto;
+    margin-top: 5px;
+    padding-top: 10px;
+    width: 80%;
+    height: auto;
+    min-height: 30px;
+    float: left;
+    left: 10%;
+    position: absolute;
     z-index: 9999;
     text-align: center;
-    background-color: #eaeaea;
 }
