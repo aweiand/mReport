@@ -23,6 +23,8 @@ body {
 }
 
 #menu {
+    float: left;
+    
     margin:0 auto;
     width:100%;
     height:auto;
@@ -39,11 +41,30 @@ body {
     background-repeat: repeat-x;
 }
 
+.listaMenu {
+    list-style:none;
+    margin:0px;
+    padding:0px;
+}
+
+.listaMenu li {
+    float:left;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin:0px;
+    font-family: Arial, 'HelveticaCondensedRegular' ;
+    font-size:13px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
 #main {
     
 }
 
 #nav {
+    float: left;
+    
     margin:0 auto;
     width:100%;
     height:auto;

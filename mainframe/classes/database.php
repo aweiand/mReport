@@ -31,7 +31,7 @@ class data{
             $CONN = ADONewConnection('mysql');
             @$CONN->Connect($server, $user, $password, $database);
             $CONN->Execute("SET NAMES utf-8;");
-            $CONN->debug=true;
+            //$CONN->debug=true;
             return $CONN;
     }
     

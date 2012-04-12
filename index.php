@@ -7,7 +7,7 @@
         <meta name="author" content="Augusto Weiand, guto.weiand@gmail.com" />
         <meta name="keywords" content="Gerador de Relatório para Moodle" />
 
-        <title>mReport</title>
+        <title>mReport | Gerador de Relatórios para Moodle</title>
 
         <?php
         require "incs.php";
@@ -28,8 +28,10 @@
 
         <div id="centralizar">
             <div id="topo">
+                <?php include_once "pg/topo.php"; ?>
             </div>
             <div id="menu">
+                <?php include_once "pg/menu.php"; ?>
             </div>
             <div id="nav">
                 <?php
@@ -64,7 +66,7 @@
                 </form>
                 <?php 
                 } else {
-                    echo "asdads";
+                    echo "Bem Vindo! você está Logado!";
                 }
                 ?>
             </div>

@@ -1,4 +1,7 @@
 <?php
+    ini_set("display_errors", 1);  
+    error_reporting(E_ALL);
+
 /*
  * Arquivo que trata das inclusões de código no sistema
  * 
@@ -9,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="mainframe/plugins/bootstrap/css/bootstrap.css" /> 
     <link rel="stylesheet" type="text/css" href="mainframe/plugins/jquery/css/custom-theme/jquery-ui-1.8.18.custom.css" />
 	<link rel="stylesheet" type="text/css" href="css/core.css" />
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />        
     <link rel="stylesheet" type="text/css" href="css/pags.css" />
     
 <!-- JS -->

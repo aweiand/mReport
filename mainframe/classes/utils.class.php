@@ -6,6 +6,14 @@
 class Utils {
     var $db;
     
+    /*
+     * Função construtora da classe
+     * 
+     */
+    function Utils(){
+        
+    }
+    
     function Base(){
         global $CONN;
         $this->db = $CONN;
@@ -44,7 +52,7 @@ class Utils {
         $db = new data();
         
         if (isset($_SESSION['iduser'])){
-            $sql = "SELECT * FROM user WHERE idusers=".$_SESSION['iduser'];
+            $sql = "SELECT * FROM users WHERE idusers=".$_SESSION['iduser'];
             $ret = $db->query($sql);
         }
         else {

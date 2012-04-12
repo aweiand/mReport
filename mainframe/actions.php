@@ -60,7 +60,27 @@ if (isset($post["action"])&&($post['action']=='Logar')){
  *   @session['autenticado'] -> string
  */
 if (isset($post["action"])&&($post['action']=='autenticacao')){
+    $u = new User();
     
+    if (!$u->_autentica($_SESSION['iduser'])) {
+        header("Location: ../index.php?actionMens=erroLogin");
+    }
+}
+
+/*
+ *  Deslogar do Sistema
+ *   apaga as sessions criadas para login e recireciona o 
+ *   usuário para a página inicial
+ * 
+ *  requer
+ *   @get[action] = Deslogar
+ *   @get[desl]   = true
+ */
+if (isset($get['action'])&&($get['action']=='Deslogar')){
+    unset($_SESSION['iduser']);
+    unset($_SESSION['logado']);
+    
+    header("location: ../index.php");
 }
 
 /*
